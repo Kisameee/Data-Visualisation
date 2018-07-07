@@ -1,9 +1,10 @@
+Dataset du mi novembre 2017 à mi mars 2018
 Se concentrer sur une catégorie ?
-- Nombre de commentaires median par catégories
-- Nombre de likes median par catégories
-- Nombre de dislikes median par catégories
-- Nombre de vues median par catégories
-- Nombre de vidéos par catégories  // Todo
-- Temps médian pour une catégorie pour passer en trending (y associé le nb de videos par catégorie) // Done
-- Ratio likes / dislikes par catégories  // Todo
-- Fun Facts  // Done
+- Nombre de commentaires median par catégories ?
+- Nombre de likes median par catégories ?
+- Nombre de dislikes median par catégories ?
+- Nombre de vues median par catégories ?
+- Nombre de vidéos par catégories  # Done
+- Temps médian pour une catégorie pour passer en trending (y associé le nb de videos par catégorie) # Done
+- Ratio likes / dislikes par catégories  # Done
+- Fun Facts (vidéos la plus vues / liké / disliké / mots les plus apparu)  # Done

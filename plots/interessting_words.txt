@@ -1,4 +1,5 @@
 episode: 1433
 2018: 1423
+johnny | hallyday: 1146
 vs: 932
 highlights: 406

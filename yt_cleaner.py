@@ -9,7 +9,6 @@ Clean the Youtube CSV data file
 
 import csv
 import pandas as pd
-import numpy as np
 
 
 def _int_converters(i):
@@ -27,7 +26,7 @@ def _dateparse(d):
         try:
             date = pd.datetime.strptime(str(d), '%Y-%m-%d')
         except ValueError:
-            date = np.nan
+            date = pd.np.nan
             # date = pd.datetime.strptime('1979-01-01', '%Y-%m-%d')
     return date
 
@@ -48,8 +47,9 @@ del(youtube_csv['description'])
 # youtube_csv['title'] = youtube_csv['title'].str.replace('"', '').str.replace("'", '')
 # youtube_csv['channel_title'] = youtube_csv['channel_title'].str.replace('"', '').str.replace("'", '')
 youtube_csv['tags'] = youtube_csv['tags'].str.replace('"', '').str.replace("'", '')
-# youtube_csv['video_error_or_removed'] = youtube_csv['video_error_or_removed'].str.replace('"', '').str.replace("'", '')
+# youtube_csv['video_error_or_removed'] = youtube_csv['video_error_or_removed']\
+#                                             .str.replace('"', '').str.replace("'", '')
 # youtube_csv['category'] = youtube_csv['category'].str.replace('"', '').str.replace("'", '')
 # youtube_csv.to_csv('ressources/cleaned_yt_v2.csv', header=True, index=False, quoting=csv.QUOTE_ALL, sep=';')
 youtube_csv.dropna().to_csv('ressources/cleaned_yt_v26.csv', header=True,
-                   index=False, sep=',', quoting=csv.QUOTE_NONNUMERIC)
+                            index=False, sep=',', quoting=csv.QUOTE_NONNUMERIC)
