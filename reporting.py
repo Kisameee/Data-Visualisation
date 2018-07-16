@@ -75,21 +75,23 @@ print('Most using words in title')
 words_counts = Counter(chain.from_iterable(list(youtube_csv['title'].str.lower().str.split().dropna()
                                                 .apply(lambda word: [unidecode.unidecode(w) for w in word]))))
 words_counts = words_counts.most_common()  # [int(len(words_counts) * 0.1):int(len(words_counts) * 0.9)]
-pprint(words_counts)
+# pprint(words_counts)  # Uncomment to see word count
 
 print('Plot 1')
 sbc = dict(youtube_csv_by_category['publish_trending_seconds'].median())
+pprint(sbc)
 bsbc = [vsbc for vsbc in sbc.values()]
 plt.figure(1)
 plt.bar([l for l in sbc], [(vsbc / 3600) for vsbc in sbc.values()])
 # pyplot.pie([vsbc for vsbc in sbc.values()], labels=[l for l in sbc], autopct='%1.1f%%', startangle=90)
 plt.legend(('Temps median en heures',))
 plt.xticks(rotation=90)
-# pyplot.savefig('./plots/temps_median_par_categorie_pour_passer_de_published_a_trending.png')
+plt.savefig('./plots/temps_median_par_categorie_pour_passer_de_published_a_trending.png')
 # stats_by_category = youtube_csv_by_category['publish_trending_seconds'].mean().to_frame(['category', 'pts'])
 
 print('Plot 2')
 likes_dislikes_by_categories = dict(youtube_csv_by_category['likes_dislikes'].median())
+pprint(likes_dislikes_by_categories)
 grouped_ldbc = [ldbc for ldbc in likes_dislikes_by_categories.values()]
 plt.figure(2)
 plt.bar([el for el in likes_dislikes_by_categories], [el for el in likes_dislikes_by_categories.values()])
@@ -97,6 +99,7 @@ plt.bar([el for el in likes_dislikes_by_categories], [el for el in likes_dislike
 #         labels=[el for el in likes_dislikes_by_categories.keys()])
 plt.legend(('Ratios medians likes / dislikes par catégories',))
 plt.xticks(rotation=90)
+plt.savefig('./plots/ratios_likes_dislikes_median_par_categories.png')
 
 print('Plot 3')
 count_by_categories = dict(youtube_csv_by_category['views'].count())
@@ -106,6 +109,7 @@ plt.figure(3)
 plt.pie(x=[el for el in count_by_categories.values()], autopct='%1.1f%%', startangle=90,
         labels=[el for el in count_by_categories.keys()])
 plt.legend(('Nombre de vidéos par catégories',))
+plt.savefig('./plots/Nombre_de_videos_par_categories.png')
 
 print('Plotting !')
 plt.show()
